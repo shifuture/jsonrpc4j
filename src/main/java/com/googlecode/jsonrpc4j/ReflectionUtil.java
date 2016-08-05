@@ -53,7 +53,7 @@ public abstract class ReflectionUtil {
 	}
 
 	/**
-	 * Checks for the annotation {@link JsonRpcMethod} on {@code method} to see if its value matches {@code name}
+	 * Checks for the annotation {@link com.googlecode.jsonrpc4j.JsonRpcMethod} on {@code method} to see if its value matches {@code name}
 	 * @param method the method to check
 	 * @param name the expected method name
 	 * @return true if {@code method} is named {@code name}
@@ -67,8 +67,8 @@ public abstract class ReflectionUtil {
 	}
 
 	/**
-	 * Returns the parameter types for the given {@link Method}.
-	 * @param method the {@link Method}
+	 * Returns the parameter types for the given {@link java.lang.reflect.Method}.
+	 * @param method the {@link java.lang.reflect.Method}
 	 * @return the parameter types
 	 */
 	static List<Class<?>> getParameterTypes(Method method) {
@@ -81,12 +81,12 @@ public abstract class ReflectionUtil {
 	}
 
 	/**
-	 * Returns {@link Annotation}s of the given type defined
-	 * on the given {@link Method}.
-	 * @param <T> the {@link Annotation} type
-	 * @param method the {@link Method}
+	 * Returns {@link java.lang.annotation.Annotation}s of the given type defined
+	 * on the given {@link java.lang.reflect.Method}.
+	 * @param <T> the {@link java.lang.annotation.Annotation} type
+	 * @param method the {@link java.lang.reflect.Method}
 	 * @param type the type
-	 * @return the {@link Annotation}s
+	 * @return the {@link java.lang.annotation.Annotation}s
 	 */
 	public static <T extends Annotation> List<T> getAnnotations(Method method, Class<T> type) {
 		return filterAnnotations(getAnnotations(method), type);
@@ -103,10 +103,10 @@ public abstract class ReflectionUtil {
 	}
 
 	/**
-	 * Returns all of the {@link Annotation}s defined on
-	 * the given {@link Method}.
-	 * @param method the {@link Method}
-	 * @return the {@link Annotation}s
+	 * Returns all of the {@link java.lang.annotation.Annotation}s defined on
+	 * the given {@link java.lang.reflect.Method}.
+	 * @param method the {@link java.lang.reflect.Method}
+	 * @return the {@link java.lang.annotation.Annotation}s
 	 */
 	private static List<Annotation> getAnnotations(Method method) {
 		if (methodAnnotationCache.containsKey(method)) { return methodAnnotationCache.get(method); }
@@ -118,8 +118,8 @@ public abstract class ReflectionUtil {
 	}
 
 	/**
-	 * Returns the first {@link Annotation} of the given type
-	 * defined on the given {@link Method}.
+	 * Returns the first {@link java.lang.annotation.Annotation} of the given type
+	 * defined on the given {@link java.lang.reflect.Method}.
 	 * @param <T> the type
 	 * @param method the method
 	 * @param type the type of annotation
@@ -133,12 +133,12 @@ public abstract class ReflectionUtil {
 	}
 
 	/**
-	 * Returns the parameter {@link Annotation}s of the
-	 * given type for the given {@link Method}.
-	 * @param <T> the {@link Annotation} type
+	 * Returns the parameter {@link java.lang.annotation.Annotation}s of the
+	 * given type for the given {@link java.lang.reflect.Method}.
+	 * @param <T> the {@link java.lang.annotation.Annotation} type
 	 * @param type the type
-	 * @param method the {@link Method}
-	 * @return the {@link Annotation}s
+	 * @param method the {@link java.lang.reflect.Method}
+	 * @return the {@link java.lang.annotation.Annotation}s
 	 */
 	static <T extends Annotation> List<List<T>> getParameterAnnotations(Method method, Class<T> type) {
 		List<List<T>> annotations = new ArrayList<>();
@@ -149,10 +149,10 @@ public abstract class ReflectionUtil {
 	}
 
 	/**
-	 * Returns the parameter {@link Annotation}s for the
-	 * given {@link Method}.
-	 * @param method the {@link Method}
-	 * @return the {@link Annotation}s
+	 * Returns the parameter {@link java.lang.annotation.Annotation}s for the
+	 * given {@link java.lang.reflect.Method}.
+	 * @param method the {@link java.lang.reflect.Method}
+	 * @return the {@link java.lang.annotation.Annotation}s
 	 */
 	private static List<List<Annotation>> getParameterAnnotations(Method method) {
 		if (methodParamAnnotationCache.containsKey(method)) { return methodParamAnnotationCache.get(method); }

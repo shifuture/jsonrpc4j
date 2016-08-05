@@ -60,7 +60,7 @@ class MappingJacksonRPC2HttpMessageConverter extends AbstractHttpMessageConverte
 
 	/**
 	 * Set the {@code ObjectMapper} for this view. If not set, a default
-	 * {@link ObjectMapper#ObjectMapper() ObjectMapper} is used.
+	 * {@link com.fasterxml.jackson.databind.ObjectMapper#ObjectMapper() ObjectMapper} is used.
 	 * <p>
 	 * Setting a custom-configured {@code ObjectMapper} is one way to take further control of the JSON serialization
 	 * process. For example, an extended {@code org.codehaus.jackson.map.SerializerFactory} can be configured that
@@ -169,9 +169,9 @@ class MappingJacksonRPC2HttpMessageConverter extends AbstractHttpMessageConverte
 	}
 
 	/**
-	 * Return the Jackson {@link JavaType} for the specified class.
+	 * Return the Jackson {@link com.fasterxml.jackson.databind.JavaType} for the specified class.
 	 * <p>
-	 * The default implementation returns {@link ObjectMapper#constructType(java.lang.reflect.Type)}, but this can be
+	 * The default implementation returns {@link com.fasterxml.jackson.databind.ObjectMapper#constructType(java.lang.reflect.Type)}, but this can be
 	 * overridden in subclasses, to allow for custom generic collection handling. For instance:
 	 * <pre class="code">
 	 * protected JavaType getJavaType(Class&lt;?&gt; clazz) { if (List.class.isAssignableFrom(clazz)) { return

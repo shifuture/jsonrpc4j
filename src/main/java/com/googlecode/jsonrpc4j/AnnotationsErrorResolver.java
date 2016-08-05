@@ -6,7 +6,7 @@ import java.lang.reflect.Method;
 import java.util.List;
 
 /**
- * {@link ErrorResolver} that uses annotations.
+ * {@link com.googlecode.jsonrpc4j.ErrorResolver} that uses annotations.
  */
 public enum AnnotationsErrorResolver implements ErrorResolver {
 	INSTANCE;

@@ -8,8 +8,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * {@link ErrorResolver} that supports the use
- * of multiple {@link ErrorResolver} used one
+ * {@link com.googlecode.jsonrpc4j.ErrorResolver} that supports the use
+ * of multiple {@link com.googlecode.jsonrpc4j.ErrorResolver} used one
  * after another until one is able to resolve
  * the error.
  *
@@ -20,10 +20,10 @@ public class MultipleErrorResolver implements ErrorResolver {
 	private final List<ErrorResolver> resolvers;
 
 	/**
-	 * Creates with the given {@link ErrorResolver}s,
-	 * {@link #addErrorResolver(ErrorResolver)} can be called to
-	 * add additional {@link ErrorResolver}s.
-	 * @param resolvers the {@link ErrorResolver}s
+	 * Creates with the given {@link com.googlecode.jsonrpc4j.ErrorResolver}s,
+	 * {@link #addErrorResolver(com.googlecode.jsonrpc4j.ErrorResolver)} can be called to
+	 * add additional {@link com.googlecode.jsonrpc4j.ErrorResolver}s.
+	 * @param resolvers the {@link com.googlecode.jsonrpc4j.ErrorResolver}s
 	 */
 	public MultipleErrorResolver(ErrorResolver... resolvers) {
 		this.resolvers = new LinkedList<>();
@@ -31,9 +31,9 @@ public class MultipleErrorResolver implements ErrorResolver {
 	}
 
 	/**
-	 * Adds an {@link ErrorResolver} to the end of the
+	 * Adds an {@link com.googlecode.jsonrpc4j.ErrorResolver} to the end of the
 	 * resolver chain.
-	 * @param errorResolver the {@link ErrorResolver} to add
+	 * @param errorResolver the {@link com.googlecode.jsonrpc4j.ErrorResolver} to add
 	 */
 	public void addErrorResolver(ErrorResolver errorResolver) {
 		this.resolvers.add(errorResolver);

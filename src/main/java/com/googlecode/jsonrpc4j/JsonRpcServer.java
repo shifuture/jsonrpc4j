@@ -27,11 +27,11 @@ public class JsonRpcServer extends JsonRpcBasicServer {
 	private String contentType = JSONRPC_CONTENT_TYPE;
 
 	/**
-	 * Creates the server with the given {@link ObjectMapper} delegating
+	 * Creates the server with the given {@link com.fasterxml.jackson.databind.ObjectMapper} delegating
 	 * all calls to the given {@code handler} {@link Object} but only
 	 * methods available on the {@code remoteInterface}.
 	 *
-	 * @param mapper the {@link ObjectMapper}
+	 * @param mapper the {@link com.fasterxml.jackson.databind.ObjectMapper}
 	 * @param handler the {@code handler}
 	 * @param remoteInterface the interface
 	 */
@@ -40,10 +40,10 @@ public class JsonRpcServer extends JsonRpcBasicServer {
 	}
 
 	/**
-	 * Creates the server with the given {@link ObjectMapper} delegating
+	 * Creates the server with the given {@link com.fasterxml.jackson.databind.ObjectMapper} delegating
 	 * all calls to the given {@code handler}.
 	 *
-	 * @param mapper the {@link ObjectMapper}
+	 * @param mapper the {@link com.fasterxml.jackson.databind.ObjectMapper}
 	 * @param handler the {@code handler}
 	 */
 	public JsonRpcServer(ObjectMapper mapper, Object handler) {
@@ -51,7 +51,7 @@ public class JsonRpcServer extends JsonRpcBasicServer {
 	}
 
 	/**
-	 * Creates the server with a default {@link ObjectMapper} delegating
+	 * Creates the server with a default {@link com.fasterxml.jackson.databind.ObjectMapper} delegating
 	 * all calls to the given {@code handler} {@link Object} but only
 	 * methods available on the {@code remoteInterface}.
 	 *
@@ -63,7 +63,7 @@ public class JsonRpcServer extends JsonRpcBasicServer {
 	}
 
 	/**
-	 * Creates the server with a default {@link ObjectMapper} delegating
+	 * Creates the server with a default {@link com.fasterxml.jackson.databind.ObjectMapper} delegating
 	 * all calls to the given {@code handler}.
 	 *
 	 * @param handler the {@code handler}
@@ -75,9 +75,9 @@ public class JsonRpcServer extends JsonRpcBasicServer {
 	/**
 	 * Handles a portlet request.
 	 *
-	 * @param request the {@link ResourceRequest}
-	 * @param response the {@link ResourceResponse}
-	 * @throws IOException on error
+	 * @param request the {@link javax.portlet.ResourceRequest}
+	 * @param response the {@link javax.portlet.ResourceResponse}
+	 * @throws java.io.IOException on error
 	 */
 	public void handle(ResourceRequest request, ResourceResponse response) throws IOException {
 		logger.debug("Handing ResourceRequest {}", request.getMethod());
@@ -106,9 +106,9 @@ public class JsonRpcServer extends JsonRpcBasicServer {
 	/**
 	 * Handles a servlet request.
 	 *
-	 * @param request the {@link HttpServletRequest}
-	 * @param response the {@link HttpServletResponse}
-	 * @throws IOException on error
+	 * @param request the {@link javax.servlet.http.HttpServletRequest}
+	 * @param response the {@link javax.servlet.http.HttpServletResponse}
+	 * @throws java.io.IOException on error
 	 */
 	public void handle(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		logger.debug("Handling HttpServletRequest {}", request);

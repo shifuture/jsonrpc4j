@@ -9,7 +9,7 @@ package com.googlecode.jsonrpc4j;
  * this provider can be used to configure application specific HTTP status codes for a given JSON-RPC error code.
  * </p>
  * <p>
- * The default implementation {@link DefaultHttpStatusCodeProvider} follows the rules defined in the
+ * The default implementation {@link com.googlecode.jsonrpc4j.DefaultHttpStatusCodeProvider} follows the rules defined in the
  * <a href="http://www.jsonrpc.org/historical/json-rpc-over-http.html">JSON-RPC over HTTP</a> document.
  * </p>
  *

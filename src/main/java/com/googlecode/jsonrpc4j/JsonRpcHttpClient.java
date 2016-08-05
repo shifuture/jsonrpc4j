@@ -40,7 +40,7 @@ public class JsonRpcHttpClient extends JsonRpcClient implements IJsonRpcClient {
 	private String contentType = JSONRPC_CONTENT_TYPE;
 
 	/**
-	 * Creates the {@link JsonRpcHttpClient} bound to the given {@code serviceUrl}.
+	 * Creates the {@link com.googlecode.jsonrpc4j.JsonRpcHttpClient} bound to the given {@code serviceUrl}.
 	 * The headers provided in the {@code headers} map are added to every request
 	 * made to the {@code serviceUrl}.
 	 *
@@ -52,11 +52,11 @@ public class JsonRpcHttpClient extends JsonRpcClient implements IJsonRpcClient {
 	}
 
 	/**
-	 * Creates the {@link JsonRpcHttpClient} bound to the given {@code serviceUrl}.
+	 * Creates the {@link com.googlecode.jsonrpc4j.JsonRpcHttpClient} bound to the given {@code serviceUrl}.
 	 * The headers provided in the {@code headers} map are added to every request
 	 * made to the {@code serviceUrl}.
 	 *
-	 * @param mapper the {@link ObjectMapper} to use for json&lt;-&gt;java conversion
+	 * @param mapper the {@link com.fasterxml.jackson.databind.ObjectMapper} to use for json&lt;-&gt;java conversion
 	 * @param serviceUrl the service end-point URL
 	 * @param headers the headers
 	 */
@@ -67,7 +67,7 @@ public class JsonRpcHttpClient extends JsonRpcClient implements IJsonRpcClient {
 	}
 
 	/**
-	 * Creates the {@link JsonRpcHttpClient} bound to the given {@code serviceUrl}.
+	 * Creates the {@link com.googlecode.jsonrpc4j.JsonRpcHttpClient} bound to the given {@code serviceUrl}.
 	 * The headers provided in the {@code headers} map are added to every request
 	 * made to the {@code serviceUrl}.
 	 *
@@ -145,7 +145,7 @@ public class JsonRpcHttpClient extends JsonRpcClient implements IJsonRpcClient {
 	 * Prepares a connection to the server.
 	 * @param extraHeaders extra headers to add to the request
 	 * @return the unopened connection
-	 * @throws IOException
+	 * @throws java.io.IOException
 	 */
 	private HttpURLConnection prepareConnection(Map<String, String> extraHeaders) throws IOException {
 

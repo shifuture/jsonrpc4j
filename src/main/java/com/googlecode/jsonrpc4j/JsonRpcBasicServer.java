@@ -94,10 +94,10 @@ public class JsonRpcBasicServer {
 	private boolean shouldLogInvocationErrors = true;
 
 	/**
-	 * Creates the server with the given {@link ObjectMapper} delegating
+	 * Creates the server with the given {@link com.fasterxml.jackson.databind.ObjectMapper} delegating
 	 * all calls to the given {@code handler}.
 	 *
-	 * @param mapper  the {@link ObjectMapper}
+	 * @param mapper  the {@link com.fasterxml.jackson.databind.ObjectMapper}
 	 * @param handler the {@code handler}
 	 */
 	public JsonRpcBasicServer(final ObjectMapper mapper, final Object handler) {
@@ -105,11 +105,11 @@ public class JsonRpcBasicServer {
 	}
 
 	/**
-	 * Creates the server with the given {@link ObjectMapper} delegating
+	 * Creates the server with the given {@link com.fasterxml.jackson.databind.ObjectMapper} delegating
 	 * all calls to the given {@code handler} {@link Object} but only
 	 * methods available on the {@code remoteInterface}.
 	 *
-	 * @param mapper          the {@link ObjectMapper}
+	 * @param mapper          the {@link com.fasterxml.jackson.databind.ObjectMapper}
 	 * @param handler         the {@code handler}
 	 * @param remoteInterface the interface
 	 */
@@ -121,7 +121,7 @@ public class JsonRpcBasicServer {
 	}
 
 	/**
-	 * Creates the server with a default {@link ObjectMapper} delegating
+	 * Creates the server with a default {@link com.fasterxml.jackson.databind.ObjectMapper} delegating
 	 * all calls to the given {@code handler} {@link Object} but only
 	 * methods available on the {@code remoteInterface}.
 	 *
@@ -133,7 +133,7 @@ public class JsonRpcBasicServer {
 	}
 
 	/**
-	 * Creates the server with a default {@link ObjectMapper} delegating
+	 * Creates the server with a default {@link com.fasterxml.jackson.databind.ObjectMapper} delegating
 	 * all calls to the given {@code handler}.
 	 *
 	 * @param handler the {@code handler}
@@ -153,13 +153,13 @@ public class JsonRpcBasicServer {
 	}
 
 	/**
-	 * Returns parameters into an {@link InputStream} of JSON data.
+	 * Returns parameters into an {@link java.io.InputStream} of JSON data.
 	 *
 	 * @param method the method
 	 * @param id     the id
 	 * @param params the base64 encoded params
-	 * @return the {@link InputStream}
-	 * @throws IOException on error
+	 * @return the {@link java.io.InputStream}
+	 * @throws java.io.IOException on error
 	 */
 	static InputStream createInputStream(String method, String id, String params) throws IOException {
 
@@ -242,15 +242,15 @@ public class JsonRpcBasicServer {
 	}
 
 	/**
-	 * Handles a single request from the given {@link InputStream},
-	 * that is to say that a single {@link JsonNode} is read from
+	 * Handles a single request from the given {@link java.io.InputStream},
+	 * that is to say that a single {@link com.fasterxml.jackson.databind.JsonNode} is read from
 	 * the stream and treated as a JSON-RPC request.  All responses
-	 * are written to the given {@link OutputStream}.
+	 * are written to the given {@link java.io.OutputStream}.
 	 *
-	 * @param input  the {@link InputStream}
-	 * @param output the {@link OutputStream}
+	 * @param input  the {@link java.io.InputStream}
+	 * @param output the {@link java.io.OutputStream}
 	 * @return the error code, or {@code 0} if none
-	 * @throws IOException on error
+	 * @throws java.io.IOException on error
 	 */
 	public int handleRequest(final InputStream input, final OutputStream output) throws IOException {
 		final ReadContext readContext = ReadContext.getReadContext(input, mapper);
@@ -280,12 +280,12 @@ public class JsonRpcBasicServer {
 	}
 
 	/**
-	 * Handles the given {@link JsonNode} and writes the responses to the given {@link OutputStream}.
+	 * Handles the given {@link com.fasterxml.jackson.databind.JsonNode} and writes the responses to the given {@link java.io.OutputStream}.
 	 *
-	 * @param node   the {@link JsonNode}
-	 * @param output the {@link OutputStream}
+	 * @param node   the {@link com.fasterxml.jackson.databind.JsonNode}
+	 * @param output the {@link java.io.OutputStream}
 	 * @return the error code, or {@code 0} if none
-	 * @throws IOException on error
+	 * @throws java.io.IOException on error
 	 */
 	protected JsonError handleJsonNodeRequest(final JsonNode node, final OutputStream output) throws IOException {
 		if (node.isArray()) return handleArray(ArrayNode.class.cast(node), output);
@@ -294,13 +294,13 @@ public class JsonRpcBasicServer {
 	}
 
 	/**
-	 * Handles the given {@link ArrayNode} and writes the
-	 * responses to the given {@link OutputStream}.
+	 * Handles the given {@link com.fasterxml.jackson.databind.node.ArrayNode} and writes the
+	 * responses to the given {@link java.io.OutputStream}.
 	 *
-	 * @param node   the {@link JsonNode}
-	 * @param output the {@link OutputStream}
+	 * @param node   the {@link com.fasterxml.jackson.databind.JsonNode}
+	 * @param output the {@link java.io.OutputStream}
 	 * @return the error code, or {@code 0} if none
-	 * @throws IOException on error
+	 * @throws java.io.IOException on error
 	 */
 	private JsonError handleArray(ArrayNode node, OutputStream output) throws IOException {
 		logger.debug("Handling {} requests", node.size());
@@ -326,13 +326,13 @@ public class JsonRpcBasicServer {
 	}
 
 	/**
-	 * Handles the given {@link ObjectNode} and writes the
-	 * responses to the given {@link OutputStream}.
+	 * Handles the given {@link com.fasterxml.jackson.databind.node.ObjectNode} and writes the
+	 * responses to the given {@link java.io.OutputStream}.
 	 *
-	 * @param node   the {@link JsonNode}
-	 * @param output the {@link OutputStream}
+	 * @param node   the {@link com.fasterxml.jackson.databind.JsonNode}
+	 * @param output the {@link java.io.OutputStream}
 	 * @return the error code, or {@code 0} if none
-	 * @throws IOException on error
+	 * @throws java.io.IOException on error
 	 */
 	private JsonError handleObject(final ObjectNode node, final OutputStream output) throws IOException {
 		logger.debug("Request: {}", node);
@@ -460,9 +460,9 @@ public class JsonRpcBasicServer {
 	 * @param method      the method to invoke
 	 * @param params the params to pass to the method
 	 * @return the return value (or null if no return)
-	 * @throws IOException               on error
+	 * @throws java.io.IOException               on error
 	 * @throws IllegalAccessException    on error
-	 * @throws InvocationTargetException on error
+	 * @throws java.lang.reflect.InvocationTargetException on error
 	 */
 	private JsonNode invoke(Object target, Method method, List<JsonNode> params) throws IOException, IllegalAccessException, InvocationTargetException {
 		logger.debug("Invoking method: {} with args {}", method.getName(), params);
@@ -499,7 +499,7 @@ public class JsonRpcBasicServer {
 	 * @param errorObject    the error data (if any)
 	 * @return the error response
 	 */
-	private ErrorObjectWithJsonError createResponseError(String jsonRpc, Object id, JsonError errorObject) {
+	public ErrorObjectWithJsonError createResponseError(String jsonRpc, Object id, JsonError errorObject) {
 		ObjectNode response = mapper.createObjectNode();
 		ObjectNode error = mapper.createObjectNode();
 		error.put(ERROR_CODE, errorObject.code);
@@ -554,13 +554,13 @@ public class JsonRpcBasicServer {
 	}
 
 	/**
-	 * Finds the {@link Method} from the supplied {@link Set} that
+	 * Finds the {@link java.lang.reflect.Method} from the supplied {@link java.util.Set} that
 	 * best matches the rest of the arguments supplied and returns
-	 * it as a {@link AMethodWithItsArgs} class.
+	 * it as a {@link com.googlecode.jsonrpc4j.JsonRpcBasicServer.AMethodWithItsArgs} class.
 	 *
-	 * @param methods    the {@link Method}s
-	 * @param paramsNode the {@link JsonNode} passed as the parameters
-	 * @return the {@link AMethodWithItsArgs}
+	 * @param methods    the {@link java.lang.reflect.Method}s
+	 * @param paramsNode the {@link com.fasterxml.jackson.databind.JsonNode} passed as the parameters
+	 * @return the {@link com.googlecode.jsonrpc4j.JsonRpcBasicServer.AMethodWithItsArgs}
 	 */
 	private AMethodWithItsArgs findBestMethodByParamsNode(Set<Method> methods, JsonNode paramsNode) {
 		if (hasNoParameters(paramsNode)) return findBestMethodUsingParamIndexes(methods, 0, null);
@@ -583,14 +583,14 @@ public class JsonRpcBasicServer {
 	}
 
 	/**
-	 * Finds the {@link Method} from the supplied {@link Set} that
+	 * Finds the {@link java.lang.reflect.Method} from the supplied {@link java.util.Set} that
 	 * best matches the rest of the arguments supplied and returns
-	 * it as a {@link AMethodWithItsArgs} class.
+	 * it as a {@link com.googlecode.jsonrpc4j.JsonRpcBasicServer.AMethodWithItsArgs} class.
 	 *
-	 * @param methods    the {@link Method}s
+	 * @param methods    the {@link java.lang.reflect.Method}s
 	 * @param paramCount the number of expect parameters
 	 * @param paramNodes the parameters for matching types
-	 * @return the {@link AMethodWithItsArgs}
+	 * @return the {@link com.googlecode.jsonrpc4j.JsonRpcBasicServer.AMethodWithItsArgs}
 	 */
 	private AMethodWithItsArgs findBestMethodUsingParamIndexes(Set<Method> methods, int paramCount, ArrayNode paramNodes) {
 		int numParams = isNullNodeOrValue(paramNodes) ? 0 : paramNodes.size();
@@ -666,13 +666,13 @@ public class JsonRpcBasicServer {
 	}
 
 	/**
-	 * Finds the {@link Method} from the supplied {@link Set} that best matches the rest of the arguments supplied and
-	 * returns it as a {@link AMethodWithItsArgs} class.
+	 * Finds the {@link java.lang.reflect.Method} from the supplied {@link java.util.Set} that best matches the rest of the arguments supplied and
+	 * returns it as a {@link com.googlecode.jsonrpc4j.JsonRpcBasicServer.AMethodWithItsArgs} class.
 	 *
-	 * @param methods the {@link Method}s
+	 * @param methods the {@link java.lang.reflect.Method}s
 	 * @param paramNames the parameter allNames
 	 * @param paramNodes the parameters for matching types
-	 * @return the {@link AMethodWithItsArgs}
+	 * @return the {@link com.googlecode.jsonrpc4j.JsonRpcBasicServer.AMethodWithItsArgs}
 	 */
 	private AMethodWithItsArgs findBestMethodUsingParamNames(Set<Method> methods, Set<String> paramNames, ObjectNode paramNodes) {
 		ParameterCount max = new ParameterCount();
@@ -701,12 +701,12 @@ public class JsonRpcBasicServer {
 	}
 
 	/**
-	 * Determines whether or not the given {@link JsonNode} matches
+	 * Determines whether or not the given {@link com.fasterxml.jackson.databind.JsonNode} matches
 	 * the given type.  This method is limited to a few java types
 	 * only and shouldn't be used to determine with great accuracy
 	 * whether or not the types match.
 	 *
-	 * @param node the {@link JsonNode}
+	 * @param node the {@link com.fasterxml.jackson.databind.JsonNode}
 	 * @param type the {@link Class}
 	 * @return true if the types match, false otherwise
 	 */
@@ -734,24 +734,25 @@ public class JsonRpcBasicServer {
 				|| long.class.isAssignableFrom(type) || float.class.isAssignableFrom(type) || double.class.isAssignableFrom(type);
 	}
 
-	private JsonError writeAndFlushValueError(OutputStream output, ErrorObjectWithJsonError value) throws IOException {
+	public JsonError writeAndFlushValueError(OutputStream output, ErrorObjectWithJsonError value) throws IOException {
 		logger.debug("failed {}", value);
 		writeAndFlushValue(output, value.node);
 		return value.error;
 	}
 
 	/**
-	 * Writes and flushes a value to the given {@link OutputStream}
+	 * Writes and flushes a value to the given {@link java.io.OutputStream}
 	 * and prevents Jackson from closing it. Also writes newline.
 	 *
-	 * @param output the {@link OutputStream}
+	 * @param output the {@link java.io.OutputStream}
 	 * @param value  the value to write
-	 * @throws IOException on error
+	 * @throws java.io.IOException on error
 	 */
 	private void writeAndFlushValue(OutputStream output, Object value) throws IOException {
 		logger.debug("Response: {}", value);
 		mapper.writeValue(new NoCloseOutputStream(output), value);
 		output.write('\n');
+		output.flush();
 	}
 
 	private Object parseId(JsonNode node) {
@@ -811,19 +812,19 @@ public class JsonRpcBasicServer {
 	}
 
 	/**
-	 * Sets the {@link ErrorResolver} used for resolving errors.
-	 * Multiple {@link ErrorResolver}s can be used at once by
-	 * using the {@link MultipleErrorResolver}.
+	 * Sets the {@link com.googlecode.jsonrpc4j.ErrorResolver} used for resolving errors.
+	 * Multiple {@link com.googlecode.jsonrpc4j.ErrorResolver}s can be used at once by
+	 * using the {@link com.googlecode.jsonrpc4j.MultipleErrorResolver}.
 	 *
 	 * @param errorResolver the errorResolver to set
-	 * @see MultipleErrorResolver
+	 * @see com.googlecode.jsonrpc4j.MultipleErrorResolver
 	 */
 	public void setErrorResolver(ErrorResolver errorResolver) {
 		this.errorResolver = errorResolver;
 	}
 
 	/**
-	 * Sets the {@link InvocationListener} instance that can be
+	 * Sets the {@link com.googlecode.jsonrpc4j.InvocationListener} instance that can be
 	 * used to provide feedback for capturing method-invocation
 	 * statistics.
 	 *
@@ -835,7 +836,7 @@ public class JsonRpcBasicServer {
 	}
 
 	/**
-	 * Sets the {@link HttpStatusCodeProvider} instance to use for HTTP error results.
+	 * Sets the {@link com.googlecode.jsonrpc4j.HttpStatusCodeProvider} instance to use for HTTP error results.
 	 *
 	 * @param httpStatusCodeProvider the status code provider to use for translating JSON-RPC error codes into
 	 *                               HTTP status messages.
@@ -845,7 +846,7 @@ public class JsonRpcBasicServer {
 	}
 
 	/**
-	 * Sets the {@link ConvertedParameterTransformer} instance that can be
+	 * Sets the {@link com.googlecode.jsonrpc4j.ConvertedParameterTransformer} instance that can be
 	 * used to mutate the deserialized arguments passed to the service method during invocation.
 	 *
 	 * @param convertedParameterTransformer the transformer to set
@@ -858,7 +859,7 @@ public class JsonRpcBasicServer {
 	 * If true, then when errors arise in the invocation of JSON-RPC services, the error will be
 	 * logged together with the underlying stack trace.  When false, no error will be logged.
 	 * An alternative mechanism for logging invocation errors is to employ an implementation of
-	 * {@link InvocationListener}.
+	 * {@link com.googlecode.jsonrpc4j.InvocationListener}.
 	 */
 
 	public void setShouldLogInvocationErrors(boolean shouldLogInvocationErrors) {

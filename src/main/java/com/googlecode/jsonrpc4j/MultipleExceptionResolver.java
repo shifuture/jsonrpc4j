@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * {@link ExceptionResolver} that supports the use
- * of multiple {@link ExceptionResolver} used one
+ * {@link com.googlecode.jsonrpc4j.ExceptionResolver} that supports the use
+ * of multiple {@link com.googlecode.jsonrpc4j.ExceptionResolver} used one
  * after another until one is able to resolve
  * the Exception.
  *
@@ -19,10 +19,10 @@ public class MultipleExceptionResolver implements ExceptionResolver {
 	private final List<ExceptionResolver> resolvers;
 
 	/**
-	 * Creates with the given {@link ExceptionResolver}s,
-	 * {@link #addExceptionResolver(ExceptionResolver)} can be called to
-	 * add additional {@link ExceptionResolver}s.
-	 * @param resolvers the {@link ExceptionResolver}s
+	 * Creates with the given {@link com.googlecode.jsonrpc4j.ExceptionResolver}s,
+	 * {@link #addExceptionResolver(com.googlecode.jsonrpc4j.ExceptionResolver)} can be called to
+	 * add additional {@link com.googlecode.jsonrpc4j.ExceptionResolver}s.
+	 * @param resolvers the {@link com.googlecode.jsonrpc4j.ExceptionResolver}s
 	 */
 	public MultipleExceptionResolver(ExceptionResolver... resolvers) {
 		this.resolvers = new LinkedList<>();
@@ -30,9 +30,9 @@ public class MultipleExceptionResolver implements ExceptionResolver {
 	}
 
 	/**
-	 * Adds an {@link ExceptionResolver} to the end of the
+	 * Adds an {@link com.googlecode.jsonrpc4j.ExceptionResolver} to the end of the
 	 * resolver chain.
-	 * @param ExceptionResolver the {@link ExceptionResolver} to add
+	 * @param ExceptionResolver the {@link com.googlecode.jsonrpc4j.ExceptionResolver} to add
 	 */
 	public void addExceptionResolver(ExceptionResolver ExceptionResolver) {
 		this.resolvers.add(ExceptionResolver);

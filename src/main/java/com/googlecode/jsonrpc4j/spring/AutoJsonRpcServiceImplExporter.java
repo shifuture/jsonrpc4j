@@ -34,13 +34,13 @@ import java.util.regex.Pattern;
  * <p>
  * This class can be instantiated in a spring context in order to simplify the configuration of JSON-RPC
  * services afforded by beans in the same context.  The services to be configured are identified
- * by the annotation {@link AutoJsonRpcServiceImpl} on the implementation of the service.  Such
- * implementation beans must also have the {@link JsonRpcService} annotation associated with them; either
+ * by the annotation {@link com.googlecode.jsonrpc4j.spring.AutoJsonRpcServiceImpl} on the implementation of the service.  Such
+ * implementation beans must also have the {@link com.googlecode.jsonrpc4j.JsonRpcService} annotation associated with them; either
  * on the implementation class itself or, preferably, on an interface that the implementation implements.
  * </p>
  *
- * <p>The path for exposing the service is obtained from {@link JsonRpcService#value()}, but it is also
- * possible to define additional paths on {@link AutoJsonRpcServiceImpl#additionalPaths()}.</p>
+ * <p>The path for exposing the service is obtained from {@link com.googlecode.jsonrpc4j.JsonRpcService#value()}, but it is also
+ * possible to define additional paths on {@link com.googlecode.jsonrpc4j.spring.AutoJsonRpcServiceImpl#additionalPaths()}.</p>
  *
  * <p>Below is an example of spring context XML snippet that illustrates typical usage;</p>
  *
@@ -49,7 +49,7 @@ import java.util.regex.Pattern;
  * &lt;bean class="MyServiceBean"/&gt;
  * </pre>
  *
- * <p>Note that this class replaces {@link AutoJsonRpcServiceExporter}.  See that class' javadoc
+ * <p>Note that this class replaces {@link com.googlecode.jsonrpc4j.spring.AutoJsonRpcServiceExporter}.  See that class' javadoc
  * for details.</p>
  */
 @SuppressWarnings("unused")
@@ -207,7 +207,7 @@ public class AutoJsonRpcServiceImplExporter implements BeanFactoryPostProcessor 
 	}
 
 	/**
-	 * Find a {@link BeanDefinition} in the {@link BeanFactory} or it's parents.
+	 * Find a {@link org.springframework.beans.factory.config.BeanDefinition} in the {@link org.springframework.beans.factory.BeanFactory} or it's parents.
 	 */
 	private BeanDefinition findBeanDefinition(ConfigurableListableBeanFactory beanFactory, String serviceBeanName) {
 		if (beanFactory.containsLocalBean(serviceBeanName)) return beanFactory.getBeanDefinition(serviceBeanName);

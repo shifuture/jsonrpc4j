@@ -44,16 +44,16 @@ public class StreamServer {
 
 	/**
 	 * Creates a {@code StreamServer} with the given max number
-	 * of threads.  A {@link ServerSocket} is created using the
-	 * default {@link ServerSocketFactory} that lists on the
-	 * given {@code port} and {@link InetAddress}.
+	 * of threads.  A {@link java.net.ServerSocket} is created using the
+	 * default {@link javax.net.ServerSocketFactory} that lists on the
+	 * given {@code port} and {@link java.net.InetAddress}.
 	 *
-	 * @param jsonRpcServer the {@link JsonRpcBasicServer} that will handleRequest requests
+	 * @param jsonRpcServer the {@link com.googlecode.jsonrpc4j.JsonRpcBasicServer} that will handleRequest requests
 	 * @param maxThreads the mac number of threads the server will spawn
 	 * @param port the port to listen on
-	 * @param backlog the {@link ServerSocket} backlog
+	 * @param backlog the {@link java.net.ServerSocket} backlog
 	 * @param bindAddress the address to listen on
-	 * @throws IOException on error
+	 * @throws java.io.IOException on error
 	 */
 	private StreamServer(JsonRpcBasicServer jsonRpcServer, int maxThreads, int port, int backlog, InetAddress bindAddress) throws IOException {
 		this(jsonRpcServer, maxThreads, ServerSocketFactory.getDefault().createServerSocket(port, backlog, bindAddress));
@@ -61,12 +61,12 @@ public class StreamServer {
 
 	/**
 	 * Creates a {@code StreamServer} with the given max number
-	 * of threads using the given {@link ServerSocket} to listen
+	 * of threads using the given {@link java.net.ServerSocket} to listen
 	 * for client connections.
 	 *
-	 * @param jsonRpcServer the {@link JsonRpcBasicServer} that will handleRequest requests
+	 * @param jsonRpcServer the {@link com.googlecode.jsonrpc4j.JsonRpcBasicServer} that will handleRequest requests
 	 * @param maxThreads the mac number of threads the server will spawn
-	 * @param serverSocket the {@link ServerSocket} used for accepting client connections
+	 * @param serverSocket the {@link java.net.ServerSocket} used for accepting client connections
 	 */
 	public StreamServer(JsonRpcBasicServer jsonRpcServer, int maxThreads, ServerSocket serverSocket) {
 		this.jsonRpcServer = jsonRpcServer;

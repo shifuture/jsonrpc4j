@@ -12,7 +12,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 /**
- * Default implementation of the {@link ExceptionResolver} interface that attempts to re-throw the same exception
+ * Default implementation of the {@link com.googlecode.jsonrpc4j.ExceptionResolver} interface that attempts to re-throw the same exception
  * that was thrown by the server.  This always returns a {@link Throwable}.
  */
 @SuppressWarnings("WeakerAccess")
@@ -41,8 +41,8 @@ public enum DefaultExceptionResolver implements ExceptionResolver {
 	}
 
 	/**
-	 * Creates a {@link JsonRpcClientException} from the given
-	 * {@link ObjectNode}.
+	 * Creates a {@link com.googlecode.jsonrpc4j.JsonRpcClientException} from the given
+	 * {@link com.fasterxml.jackson.databind.node.ObjectNode}.
 	 *
 	 * @param errorObject the error object
 	 * @return the exception
@@ -60,7 +60,7 @@ public enum DefaultExceptionResolver implements ExceptionResolver {
 	 * @param typeName the java type name (class name)
 	 * @param message  the message
 	 * @return the throwable
-	 * @throws InvocationTargetException
+	 * @throws java.lang.reflect.InvocationTargetException
 	 * @throws IllegalAccessException
 	 * @throws InstantiationException
 	 * @throws IllegalArgumentException

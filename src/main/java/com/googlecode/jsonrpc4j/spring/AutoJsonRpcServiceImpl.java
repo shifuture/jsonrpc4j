@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 
 /**
  * This annotation goes on the <em>implementation</em> of the JSON-RPC service.  It defines any additional paths on
- * which the JSON-RPC service should be exported.  This can be used with the {@link AutoJsonRpcServiceImplExporter}
+ * which the JSON-RPC service should be exported.  This can be used with the {@link com.googlecode.jsonrpc4j.spring.AutoJsonRpcServiceImplExporter}
  * in order to automatically expose the JSON-RPC services in a spring based web application server.  Note that the
  * implementation should still continue to carry the {@link com.googlecode.jsonrpc4j.JsonRpcServer} annotation;
  * preferably on the service interface.

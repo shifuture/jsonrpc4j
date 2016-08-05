@@ -28,7 +28,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * Auto-creates proxies for service interfaces annotated with {@link JsonRpcService}.
+ * Auto-creates proxies for service interfaces annotated with {@link com.googlecode.jsonrpc4j.JsonRpcService}.
  */
 @SuppressWarnings("unused")
 public class AutoJsonRpcClientProxyCreator implements BeanFactoryPostProcessor, ApplicationContextAware {

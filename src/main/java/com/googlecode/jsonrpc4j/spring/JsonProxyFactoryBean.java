@@ -27,7 +27,7 @@ import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLContext;
 
 /**
- * {@link FactoryBean} for creating a {@link UrlBasedRemoteAccessor}
+ * {@link org.springframework.beans.factory.FactoryBean} for creating a {@link org.springframework.remoting.support.UrlBasedRemoteAccessor}
  * (aka consumer) for accessing an HTTP based JSON-RPC service.
  *
  */

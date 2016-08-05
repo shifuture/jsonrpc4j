@@ -15,7 +15,7 @@ import com.googlecode.jsonrpc4j.JsonRpcServer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * {@link RemoteExporter} that exports services using Json
+ * {@link org.springframework.remoting.support.RemoteExporter} that exports services using Json
  * according to the JSON-RPC proposal specified at:
  * <a href="http://groups.google.com/group/json-rpc">
  * http://groups.google.com/group/json-rpc</a>.

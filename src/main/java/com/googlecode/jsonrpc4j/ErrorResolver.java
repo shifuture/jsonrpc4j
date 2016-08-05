@@ -12,14 +12,14 @@ public interface ErrorResolver {
 
 	/**
 	 * Resolves the error using the {@link Throwable} that
-	 * was thrown by the given {@link Method} when passed
+	 * was thrown by the given {@link java.lang.reflect.Method} when passed
 	 * the given {@code arguments}.  If the error can not
 	 * be resolved then null is returned.
 	 *
 	 * @param t the {@link Throwable}
-	 * @param method the {@link Method} that threw the {@link Throwable}
-	 * @param arguments the {@code arguments} that were passed to the {@link Method}
-	 * @return the {@link JsonError} or null if it couldn't be resolved
+	 * @param method the {@link java.lang.reflect.Method} that threw the {@link Throwable}
+	 * @param arguments the {@code arguments} that were passed to the {@link java.lang.reflect.Method}
+	 * @return the {@link com.googlecode.jsonrpc4j.ErrorResolver.JsonError} or null if it couldn't be resolved
 	 */
 	JsonError resolveError(Throwable t, Method method, List<JsonNode> arguments);
 
@@ -27,7 +27,7 @@ public interface ErrorResolver {
 	 * A JSON error.
 	 */
 	@SuppressWarnings({ "WeakerAccess", "unused" })
-	class JsonError {
+	public class JsonError {
 
 		public static final JsonError OK = new JsonError(0, "ok", null);
 		public static final JsonError PARSE_ERROR = new JsonError(-32700, "JSON parse error", null);

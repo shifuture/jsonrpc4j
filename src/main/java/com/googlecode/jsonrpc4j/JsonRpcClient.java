@@ -43,7 +43,7 @@ public class JsonRpcClient {
 	private Map<String, Object> additionalJsonContent = new HashMap<>();
 
 	/**
-	 * Creates a client that uses the default {@link ObjectMapper}
+	 * Creates a client that uses the default {@link com.fasterxml.jackson.databind.ObjectMapper}
 	 * to map to and from JSON and Java objects.
 	 */
 	public JsonRpcClient() {
@@ -51,9 +51,9 @@ public class JsonRpcClient {
 	}
 
 	/**
-	 * Creates a client that uses the given {@link ObjectMapper} to
+	 * Creates a client that uses the given {@link com.fasterxml.jackson.databind.ObjectMapper} to
 	 * map to and from JSON and Java objects.
-	 * @param mapper the {@link ObjectMapper}
+	 * @param mapper the {@link com.fasterxml.jackson.databind.ObjectMapper}
 	 */
 	public JsonRpcClient(ObjectMapper mapper) {
 		this.mapper = mapper;
@@ -69,8 +69,8 @@ public class JsonRpcClient {
 	}
 
 	/**
-	 * Sets the {@link RequestListener}.
-	 * @param requestListener the {@link RequestListener}
+	 * Sets the {@link com.googlecode.jsonrpc4j.JsonRpcClient.RequestListener}.
+	 * @param requestListener the {@link com.googlecode.jsonrpc4j.JsonRpcClient.RequestListener}
 	 */
 	public void setRequestListener(RequestListener requestListener) {
 		this.requestListener = requestListener;
@@ -81,12 +81,12 @@ public class JsonRpcClient {
 	 * passing the given arguments, a generated id and reads
 	 * a response.
 	 *
-	 * @see #writeRequest(String, Object, OutputStream, String)
+	 * @see #writeRequest(String, Object, java.io.OutputStream, String)
 	 * @param methodName the method to invoke
 	 * @param argument the argument to pass to the method
 	 * @param clazz the expected return type
-	 * @param output the {@link OutputStream} to write to
-	 * @param input the {@link InputStream} to read from
+	 * @param output the {@link java.io.OutputStream} to write to
+	 * @param input the {@link java.io.InputStream} to read from
 	 * @param <T> the expected return type
 	 * @return the returned Object
 	 * @throws Throwable on error
@@ -101,12 +101,12 @@ public class JsonRpcClient {
 	 * passing the given arguments, a generated id and reads
 	 * a response.
 	 *
-	 * @see #writeRequest(String, Object, OutputStream, String)
+	 * @see #writeRequest(String, Object, java.io.OutputStream, String)
 	 * @param methodName the method to invoke
 	 * @param argument the argument to pass to the method
 	 * @param returnType the expected return type
-	 * @param output the {@link OutputStream} to write to
-	 * @param input the {@link InputStream} to read from
+	 * @param output the {@link java.io.OutputStream} to write to
+	 * @param input the {@link java.io.InputStream} to read from
 	 * @return the returned Object
 	 * @throws Throwable on error
 	 */
@@ -118,12 +118,12 @@ public class JsonRpcClient {
 	 * Invokes the given method on the remote service
 	 * passing the given arguments and reads a response.
 	 *
-	 * @see #writeRequest(String, Object, OutputStream, String)
+	 * @see #writeRequest(String, Object, java.io.OutputStream, String)
 	 * @param methodName the method to invoke
 	 * @param argument the argument to pass to the method
 	 * @param returnType the expected return type
-	 * @param output the {@link OutputStream} to write to
-	 * @param input the {@link InputStream} to read from
+	 * @param output the {@link java.io.OutputStream} to write to
+	 * @param input the {@link java.io.InputStream} to read from
 	 * @param id id to send with the JSON-RPC request
 	 * @return the returned Object
 	 * @throws Throwable if there is an error
@@ -141,15 +141,15 @@ public class JsonRpcClient {
 	/**
 	 * Invokes the given method on the remote service passing
 	 * the given argument.  To read the response
-	 * {@link #readResponse(Type, InputStream)}  must be subsequently
+	 * {@link #readResponse(java.lang.reflect.Type, java.io.InputStream)}  must be subsequently
 	 * called.
 	 *
-	 * @see #writeRequest(String, Object, OutputStream, String)
+	 * @see #writeRequest(String, Object, java.io.OutputStream, String)
 	 * @param methodName the method to invoke
 	 * @param argument the argument to pass to the method
-	 * @param output the {@link OutputStream} to write to
+	 * @param output the {@link java.io.OutputStream} to write to
 	 * @param id the request id
-	 * @throws IOException on error
+	 * @throws java.io.IOException on error
 	 */
 	private void invoke(String methodName, Object argument, OutputStream output, String id) throws IOException {
 		writeRequest(methodName, argument, output, id);
@@ -162,7 +162,7 @@ public class JsonRpcClient {
 	 * not correspond, are disregarded.
 	 *
 	 * @param returnType the expected return type
-	 * @param input the {@link InputStream} to read from
+	 * @param input the {@link java.io.InputStream} to read from
 	 * @param id The id used to compare the response with.
 	 * @return the object returned by the JSON-RPC response
 	 * @throws Throwable on error
@@ -184,7 +184,7 @@ public class JsonRpcClient {
 	}
 
 	/**
-	 * Writes a JSON-RPC request to the given {@link OutputStream}.
+	 * Writes a JSON-RPC request to the given {@link java.io.OutputStream}.
 	 * If the value passed for argument is null then the {@code params}
 	 * property is omitted from the JSON-RPC request.  If the argument
 	 * is not not null then it is used as the value of the {@code params}
@@ -203,17 +203,17 @@ public class JsonRpcClient {
 	 * 		"lastName" : ..;
 	 * }
 	 * </pre>
-	 * The same would be true of a {@link Map} containing the keys
+	 * The same would be true of a {@link java.util.Map} containing the keys
 	 * {@code firstName} and {@code lastName}.  If the argument passed
-	 * in implements the {@link Collection} interface or is an array
+	 * in implements the {@link java.util.Collection} interface or is an array
 	 * then the values are used as indexed parameters in the order that
-	 * they appear in the {@link Collection} or array.
+	 * they appear in the {@link java.util.Collection} or array.
 	 *
 	 * @param methodName the method to invoke
 	 * @param argument the method argument
-	 * @param output the {@link OutputStream} to write to
+	 * @param output the {@link java.io.OutputStream} to write to
 	 * @param id the request id
-	 * @throws IOException on error
+	 * @throws java.io.IOException on error
 	 */
 	private void writeRequest(String methodName, Object argument, OutputStream output, String id) throws IOException {
 		internalWriteRequest(methodName, argument, output, id);
@@ -275,7 +275,7 @@ public class JsonRpcClient {
 	 * @param arguments the arguments
 	 * @param output the stream
 	 * @param id the optional id
-	 * @throws IOException on error
+	 * @throws java.io.IOException on error
 	 */
 	private void internalWriteRequest(String methodName, Object arguments, OutputStream output, String id) throws IOException {
 		final ObjectNode request = internalCreateRequest(methodName, arguments, id);
@@ -321,11 +321,11 @@ public class JsonRpcClient {
 	}
 
 	/**
-	 * Writes and flushes a value to the given {@link OutputStream}
+	 * Writes and flushes a value to the given {@link java.io.OutputStream}
 	 * and prevents Jackson from closing it.
-	 * @param output the {@link OutputStream}
+	 * @param output the {@link java.io.OutputStream}
 	 * @param value the value to write
-	 * @throws IOException on error
+	 * @throws java.io.IOException on error
 	 */
 	private void writeAndFlushValue(OutputStream output, Object value) throws IOException {
 		mapper.writeValue(new NoCloseOutputStream(output), value);
@@ -423,12 +423,12 @@ public class JsonRpcClient {
 	 * Invokes the given method on the remote service
 	 * passing the given arguments and reads a response.
 	 *
-	 * @see #writeRequest(String, Object, OutputStream, String)
+	 * @see #writeRequest(String, Object, java.io.OutputStream, String)
 	 * @param methodName the method to invoke
 	 * @param argument the argument to pass to the method
 	 * @param clazz the expected return type
-	 * @param output the {@link OutputStream} to write to
-	 * @param input the {@link InputStream} to read from
+	 * @param output the {@link java.io.OutputStream} to write to
+	 * @param input the {@link java.io.InputStream} to read from
 	 * @param id id to send with the JSON-RPC request
 	 * @param <T> the expected return type
 	 * @return the returned Object
@@ -443,14 +443,14 @@ public class JsonRpcClient {
 	/**
 	 * Invokes the given method on the remote service passing
 	 * the given argument.  An id is generated automatically.  To read
-	 * the response {@link #readResponse(Type, InputStream)}  must be
+	 * the response {@link #readResponse(java.lang.reflect.Type, java.io.InputStream)}  must be
 	 * subsequently called.
 	 *
-	 * @see #writeRequest(String, Object, OutputStream, String)
+	 * @see #writeRequest(String, Object, java.io.OutputStream, String)
 	 * @param methodName the method to invoke
 	 * @param argument the arguments to pass to the method
-	 * @param output the {@link OutputStream} to write to
-	 * @throws IOException on error
+	 * @param output the {@link java.io.OutputStream} to write to
+	 * @throws java.io.IOException on error
 	 */
 	public void invoke(String methodName, Object argument, OutputStream output) throws IOException {
 		invoke(methodName, argument, output, generateRandomId());
@@ -461,11 +461,11 @@ public class JsonRpcClient {
 	 * the given argument without reading or expecting a return
 	 * response.
 	 *
-	 * @see #writeRequest(String, Object, OutputStream, String)
+	 * @see #writeRequest(String, Object, java.io.OutputStream, String)
 	 * @param methodName the method to invoke
 	 * @param argument the argument to pass to the method
-	 * @param output the {@link OutputStream} to write to
-	 * @throws IOException on error
+	 * @param output the {@link java.io.OutputStream} to write to
+	 * @throws java.io.IOException on error
 	 */
 	public void invokeNotification(String methodName, Object argument, OutputStream output) throws IOException {
 		writeRequest(methodName, argument, output, null);
@@ -477,7 +477,7 @@ public class JsonRpcClient {
 	 * a response is received.
 	 *
 	 * @param clazz the expected return type
-	 * @param input the {@link InputStream} to read from
+	 * @param input the {@link java.io.InputStream} to read from
 	 * @param <T> the expected return type
 	 * @return the object returned by the JSON-RPC response
 	 * @throws Throwable on error
@@ -492,7 +492,7 @@ public class JsonRpcClient {
 	 * a response is received.
 	 *
 	 * @param returnType the expected return type
-	 * @param input the {@link InputStream} to read from
+	 * @param input the {@link java.io.InputStream} to read from
 	 * @return the object returned by the JSON-RPC response
 	 * @throws Throwable on error
 	 */
@@ -506,7 +506,7 @@ public class JsonRpcClient {
 	 * not correspond, are disregarded.
 	 *
 	 * @param clazz the expected return type
-	 * @param input the {@link InputStream} to read from
+	 * @param input the {@link java.io.InputStream} to read from
 	 * @param id The id used to compare the response with
 	 * @param <T> the expected return type
 	 * @return the object returned by the JSON-RPC response
@@ -527,13 +527,13 @@ public class JsonRpcClient {
 
 	/**
 	 * Writes a JSON-RPC notification to the given
-	 * {@link OutputStream}.
+	 * {@link java.io.OutputStream}.
 	 *
-	 * @see #writeRequest(String, Object, OutputStream, String)
+	 * @see #writeRequest(String, Object, java.io.OutputStream, String)
 	 * @param methodName the method to invoke
 	 * @param argument the method argument
-	 * @param output the {@link OutputStream} to write to
-	 * @throws IOException on error
+	 * @param output the {@link java.io.OutputStream} to write to
+	 * @throws java.io.IOException on error
 	 */
 	public void writeNotification(String methodName, Object argument, OutputStream output) throws IOException {
 		internalWriteRequest(methodName, argument, output, null);
@@ -557,9 +557,9 @@ public class JsonRpcClient {
 	}
 
 	/**
-	 * Returns the {@link ObjectMapper} that the client
+	 * Returns the {@link com.fasterxml.jackson.databind.ObjectMapper} that the client
 	 * is using for JSON marshalling.
-	 * @return the {@link ObjectMapper}
+	 * @return the {@link com.fasterxml.jackson.databind.ObjectMapper}
 	 */
 	public ObjectMapper getObjectMapper() {
 		return mapper;
@@ -573,7 +573,7 @@ public class JsonRpcClient {
 	}
 
 	/**
-	 * Provides access to the jackson {@link ObjectNode}s
+	 * Provides access to the jackson {@link com.fasterxml.jackson.databind.node.ObjectNode}s
 	 * that represent the JSON-RPC requests and responses.
 	 *
 	 */
@@ -583,8 +583,8 @@ public class JsonRpcClient {
 		 * Called before a request is sent to the
 		 * server end-point.  Modifications can be
 		 * made to the request before it's sent.
-		 * @param client the {@link JsonRpcClient}
-		 * @param request the request {@link ObjectNode}
+		 * @param client the {@link com.googlecode.jsonrpc4j.JsonRpcClient}
+		 * @param request the request {@link com.fasterxml.jackson.databind.node.ObjectNode}
 		 */
 		void onBeforeRequestSent(JsonRpcClient client, ObjectNode request);
 
@@ -592,8 +592,8 @@ public class JsonRpcClient {
 		 * Called after a response has been returned and
 		 * successfully parsed but before it has been
 		 * processed and turned into java objects.
-		 * @param client the {@link JsonRpcClient}
-		 * @param response the response {@link ObjectNode}
+		 * @param client the {@link com.googlecode.jsonrpc4j.JsonRpcClient}
+		 * @param response the response {@link com.fasterxml.jackson.databind.node.ObjectNode}
 		 */
 		void onBeforeResponseProcessed(JsonRpcClient client, ObjectNode response);
 	}

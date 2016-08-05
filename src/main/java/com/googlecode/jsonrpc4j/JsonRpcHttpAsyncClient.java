@@ -114,7 +114,7 @@ public class JsonRpcHttpAsyncClient {
 	}
 
 	/**
-	 * Creates the {@link JsonRpcHttpAsyncClient} bound to the given {@code serviceUrl}.
+	 * Creates the {@link com.googlecode.jsonrpc4j.JsonRpcHttpAsyncClient} bound to the given {@code serviceUrl}.
 	 * 
 	 * @param serviceUrl the service end-point URL
 	 */
@@ -123,11 +123,11 @@ public class JsonRpcHttpAsyncClient {
 	}
 
 	/**
-	 * Creates the {@link JsonRpcHttpAsyncClient} using the specified {@code ObjectMapper} and bound to the given 
+	 * Creates the {@link com.googlecode.jsonrpc4j.JsonRpcHttpAsyncClient} using the specified {@code ObjectMapper} and bound to the given
 	 * {@code serviceUrl}. The headers provided in the {@code headers} map are added to every request
 	 * made to the {@code serviceUrl}.
 	 *
-	 * @param mapper the {@link ObjectMapper} to use for json&lt;-&gt;java conversion
+	 * @param mapper the {@link com.fasterxml.jackson.databind.ObjectMapper} to use for json&lt;-&gt;java conversion
 	 * @param serviceUrl the service end-point URL
 	 * @param headers the headers
 	 */
@@ -138,7 +138,7 @@ public class JsonRpcHttpAsyncClient {
 	}
 
 	/**
-	 * Creates the {@link JsonRpcHttpAsyncClient} bound to the given
+	 * Creates the {@link com.googlecode.jsonrpc4j.JsonRpcHttpAsyncClient} bound to the given
 	 * {@code serviceUrl}. The headers provided in the {@code headers} map are
 	 * added to every request made to the {@code serviceUrl}.
 	 *
@@ -351,7 +351,7 @@ public class JsonRpcHttpAsyncClient {
 	 * is received.
 	 *
 	 * @param returnType the expected return type
-	 * @param ips the {@link InputStream} to read from
+	 * @param ips the {@link java.io.InputStream} to read from
 	 * @return the object returned by the JSON-RPC response
 	 * @throws Throwable on error
 	 */

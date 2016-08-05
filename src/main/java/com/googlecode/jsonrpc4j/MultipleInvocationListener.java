@@ -8,8 +8,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * {@link com.googlecode.jsonrpc4j.InvocationListener} that supports the use
- * of multiple {@link InvocationListener}s called one after another.
+ * {@link InvocationListener} that supports the use
+ * of multiple {@link com.googlecode.jsonrpc4j.InvocationListener}s called one after another.
  * @author Andrew Lindesay
  */
 
@@ -19,10 +19,10 @@ public class MultipleInvocationListener implements InvocationListener {
 	private final List<InvocationListener> invocationListeners;
 
 	/**
-	 * Creates with the given {@link InvocationListener}s,
-	 * {@link #addInvocationListener(InvocationListener)} can be called to
-	 * add additional {@link InvocationListener}s.
-	 * @param invocationListeners the {@link InvocationListener}s
+	 * Creates with the given {@link com.googlecode.jsonrpc4j.InvocationListener}s,
+	 * {@link #addInvocationListener(com.googlecode.jsonrpc4j.InvocationListener)} can be called to
+	 * add additional {@link com.googlecode.jsonrpc4j.InvocationListener}s.
+	 * @param invocationListeners the {@link com.googlecode.jsonrpc4j.InvocationListener}s
 	 */
 	public MultipleInvocationListener(InvocationListener... invocationListeners) {
 		this.invocationListeners = new LinkedList<>();
@@ -30,9 +30,9 @@ public class MultipleInvocationListener implements InvocationListener {
 	}
 
 	/**
-	 * Adds an {@link InvocationListener} to the end of the
+	 * Adds an {@link com.googlecode.jsonrpc4j.InvocationListener} to the end of the
 	 * list of invocation listeners.
-	 * @param invocationListener the {@link InvocationListener} to add
+	 * @param invocationListener the {@link com.googlecode.jsonrpc4j.InvocationListener} to add
 	 */
 	public void addInvocationListener(InvocationListener invocationListener) {
 		this.invocationListeners.add(invocationListener);

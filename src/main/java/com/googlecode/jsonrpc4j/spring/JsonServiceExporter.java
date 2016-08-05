@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * {@link HttpRequestHandler} that exports services using Json
+ * {@link org.springframework.web.HttpRequestHandler} that exports services using Json
  * according to the JSON-RPC proposal specified at:
  * <a href="http://groups.google.com/group/json-rpc">
  * http://groups.google.com/group/json-rpc</a>.

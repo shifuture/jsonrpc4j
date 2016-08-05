@@ -5,7 +5,7 @@ package com.googlecode.jsonrpc4j;
  * JSON-RPC service. This allows for mutation of the deserialized arguments before a method invocation or for validation
  * of the actual argument objects.
  *
- * Any exceptions thrown in the {@link ConvertedParameterTransformer#transformConvertedParameters(Object, Object[])}
+ * Any exceptions thrown in the {@link com.googlecode.jsonrpc4j.ConvertedParameterTransformer#transformConvertedParameters(Object, Object[])}
  * method, will be returned as an error to the JSON-RPC client.
  */
 public interface ConvertedParameterTransformer {

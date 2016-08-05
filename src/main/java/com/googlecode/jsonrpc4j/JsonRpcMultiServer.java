@@ -108,7 +108,7 @@ public class JsonRpcMultiServer extends JsonRpcServer {
 	@Override
 	protected String getServiceName(final String methodName) {
 		if (methodName != null) {
-			int ndx = methodName.indexOf(this.separator);
+			int ndx = methodName.lastIndexOf(this.separator);
 			if (ndx > 0) { return methodName.substring(0, ndx); }
 		}
 		return methodName;
@@ -123,7 +123,7 @@ public class JsonRpcMultiServer extends JsonRpcServer {
 	@Override
 	protected String getMethodName(final String methodName) {
 		if (methodName != null) {
-			int ndx = methodName.indexOf(this.separator);
+			int ndx = methodName.lastIndexOf(this.separator);
 			if (ndx > 0) { return methodName.substring(ndx + 1); }
 		}
 		return methodName;

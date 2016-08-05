@@ -144,7 +144,7 @@ class JsonRestProxyFactoryBean<T> extends UrlBasedRemoteAccessor implements Meth
 	/**
 	 * @param requestListener the requestListener to set
 	 */
-	public void setRequestListener(JsonRpcClient.RequestListener requestListener) {
+	public void setRequestListener(RequestListener requestListener) {
 		this.requestListener = requestListener;
 	}
 

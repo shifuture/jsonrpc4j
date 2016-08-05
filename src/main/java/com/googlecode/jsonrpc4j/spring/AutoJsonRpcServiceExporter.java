@@ -28,12 +28,12 @@ import java.util.Map.Entry;
 
 /**
  * <p>This exporter class is deprecated because it exposes all beans from a spring context that has the
- * {@link JsonRpcService} annotation.  If that context is also consuming JSON-RPC services from a remote
+ * {@link com.googlecode.jsonrpc4j.JsonRpcService} annotation.  If that context is also consuming JSON-RPC services from a remote
  * system and has proxy clients instantiated in the same context then those proxy clients will also
- * be (inadvertently) exposed by {@link AutoJsonRpcServiceExporter}.  To avoid this, switch over to use
- * {@link AutoJsonRpcServiceImplExporter} which exposes specific implementations of the JSON-RPC services'
- * interfaces rather than all beans that implement {@link JsonRpcService}.</p>
- * @deprecated use {@link AutoJsonRpcServiceImplExporter} instead.
+ * be (inadvertently) exposed by {@link com.googlecode.jsonrpc4j.spring.AutoJsonRpcServiceExporter}.  To avoid this, switch over to use
+ * {@link com.googlecode.jsonrpc4j.spring.AutoJsonRpcServiceImplExporter} which exposes specific implementations of the JSON-RPC services'
+ * interfaces rather than all beans that implement {@link com.googlecode.jsonrpc4j.JsonRpcService}.</p>
+ * @deprecated use {@link com.googlecode.jsonrpc4j.spring.AutoJsonRpcServiceImplExporter} instead.
  */
 @Deprecated
 @SuppressWarnings("unused")
@@ -161,7 +161,7 @@ public class AutoJsonRpcServiceExporter implements BeanFactoryPostProcessor {
 	}
 
 	/**
-	 * Find a {@link BeanDefinition} in the {@link BeanFactory} or it's parents.
+	 * Find a {@link org.springframework.beans.factory.config.BeanDefinition} in the {@link org.springframework.beans.factory.BeanFactory} or it's parents.
 	 */
 	private BeanDefinition findBeanDefinition(ConfigurableListableBeanFactory beanFactory, String serviceBeanName) {
 		if (beanFactory.containsLocalBean(serviceBeanName)) return beanFactory.getBeanDefinition(serviceBeanName);

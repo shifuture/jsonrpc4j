@@ -103,15 +103,15 @@ public abstract class ProxyUtil {
 	}
 
 	/**
-	 * Creates a {@link Proxy} of the given {@code proxyInterface}
-	 * that uses the given {@link JsonRpcClient}.
+	 * Creates a {@link java.lang.reflect.Proxy} of the given {@code proxyInterface}
+	 * that uses the given {@link com.googlecode.jsonrpc4j.JsonRpcClient}.
 	 * @param <T> the proxy type
 	 * @param classLoader the {@link ClassLoader}
 	 * @param proxyInterface the interface to proxy
-	 * @param client the {@link JsonRpcClient}
-	 * @param socket the {@link Socket}
+	 * @param client the {@link com.googlecode.jsonrpc4j.JsonRpcClient}
+	 * @param socket the {@link java.net.Socket}
 	 * @return the proxied interface
-	 * @throws IOException if an I/O error occurs when creating the input stream,  the output stream, the socket 
+	 * @throws java.io.IOException if an I/O error occurs when creating the input stream,  the output stream, the socket
 	 * is closed, the socket is not connected,  or the socket input has been shutdown using shutdownInput()
 	 */
 	@SuppressWarnings("WeakerAccess")
@@ -120,14 +120,14 @@ public abstract class ProxyUtil {
 	}
 
 	/**
-	 * Creates a {@link Proxy} of the given {@code proxyInterface}
-	 * that uses the given {@link JsonRpcClient}.
+	 * Creates a {@link java.lang.reflect.Proxy} of the given {@code proxyInterface}
+	 * that uses the given {@link com.googlecode.jsonrpc4j.JsonRpcClient}.
 	 * @param <T> the proxy type
 	 * @param classLoader the {@link ClassLoader}
 	 * @param proxyInterface the interface to proxy
-	 * @param client the {@link JsonRpcClient}
-	 * @param input the {@link InputStream}
-	 * @param output the {@link OutputStream}
+	 * @param client the {@link com.googlecode.jsonrpc4j.JsonRpcClient}
+	 * @param input the {@link java.io.InputStream}
+	 * @param output the {@link java.io.OutputStream}
 	 * @return the proxied interface
 	 */
 	@SuppressWarnings({ "unchecked", "WeakerAccess" })
@@ -164,11 +164,11 @@ public abstract class ProxyUtil {
 	}
 
 	/**
-	 * Creates a {@link Proxy} of the given {@code proxyInterface} that uses the given {@link JsonRpcHttpClient}.
+	 * Creates a {@link java.lang.reflect.Proxy} of the given {@code proxyInterface} that uses the given {@link com.googlecode.jsonrpc4j.JsonRpcHttpClient}.
 	 * @param <T> the proxy type
 	 * @param classLoader the {@link ClassLoader}
 	 * @param proxyInterface the interface to proxy
-	 * @param client the {@link JsonRpcHttpClient}
+	 * @param client the {@link com.googlecode.jsonrpc4j.JsonRpcHttpClient}
 	 * @return the proxied interface
 	 */
 	public static <T> T createClientProxy(ClassLoader classLoader, Class<T> proxyInterface, final IJsonRpcClient client) {
@@ -176,12 +176,12 @@ public abstract class ProxyUtil {
 	}
 
 	/**
-	 * Creates a {@link Proxy} of the given {@code proxyInterface}
-	 * that uses the given {@link IJsonRpcClient}.
+	 * Creates a {@link java.lang.reflect.Proxy} of the given {@code proxyInterface}
+	 * that uses the given {@link com.googlecode.jsonrpc4j.IJsonRpcClient}.
 	 * @param <T> the proxy type
 	 * @param classLoader the {@link ClassLoader}
 	 * @param proxyInterface the interface to proxy
-	 * @param client the {@link JsonRpcHttpClient}
+	 * @param client the {@link com.googlecode.jsonrpc4j.JsonRpcHttpClient}
 	 * @param extraHeaders extra HTTP headers to be added to each response
 	 * @return the proxied interface
 	 */

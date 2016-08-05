@@ -15,7 +15,7 @@ import java.util.Arrays;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * This default implementation of a {@link HttpStatusCodeProvider} follows the rules defined in the
+ * This default implementation of a {@link com.googlecode.jsonrpc4j.HttpStatusCodeProvider} follows the rules defined in the
  * <a href="http://www.jsonrpc.org/historical/json-rpc-over-http.html">JSON-RPC over HTTP</a> document.
  */
 @SuppressWarnings("WeakerAccess")
